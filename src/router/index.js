@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home';
-import Dynamic from '../components/Dynamic';
+
+const Home = () => import('../views/Home');
+const Dynamic = () => import('../components/Dynamic');
 
 Vue.use(VueRouter);
 
