@@ -1,13 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Url from './App/url';
+import url from './App/url';
+import auth from './App/auth';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  modules: {
-    url: Url,
-  },
+  modules: { url, auth },
   state: {
   },
   mutations: {

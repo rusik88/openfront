@@ -50,6 +50,8 @@ module.exports = {
       2,
     ],
     'vue/attribute-hyphenation': 'off',
+    'vue/singleline-html-element-content-newline': 'error',
+    'vue/html-closing-bracket-spacing': 'error',
     'vue/name-property-casing': 'off',
     'vue/html-end-tags': 'error',
     'vue/html-self-closing': 'error',
