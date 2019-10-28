@@ -15,10 +15,6 @@
 <script>
 export default {
   name: 'app',
-  beforeCreate() {
-    console.log('beforeCreate()1');
-    console.log('beforeCreate()2');
-  },
 };
 </script>
 
