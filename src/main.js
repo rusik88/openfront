@@ -1,15 +1,16 @@
 import Vue from 'vue';
 import VueAxios from 'vue-axios';
-import axios from './axios_init';
+import axios from './includes/init_axios';
+import InitApp from './includes/init_app';
 import App from './App';
 import router from './router';
 import store from './store';
-import Init from './init';
+
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 
-Init.apiLogin();
+InitApp.apiLogin();
 
 new Vue({
   router,
