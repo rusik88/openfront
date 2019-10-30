@@ -9,14 +9,20 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use((config) => {
-  const formData = new FormData();
-  const configData = Object.assign(config.data);
   if (config.method === 'post') {
-    Object.keys(configData).forEach((key) => {
-      formData.append(key, configData[key]);
-    });
+    const formData = new FormData();
+    const configDataKeys = Object.keys(config.data);
+    for (let i = 0; i < configDataKeys.length; i += 1) {
+      formData.append(configDataKeys[i], config.data[configDataKeys[i]]);
+    }
+    config.data = formData;
   }
-  config.data = formData;
+  console.log('request', config);
+  return config;
+});
+
+instance.interceptors.response.use((config) => {
+  console.log('response', config);
   return config;
 });
 
