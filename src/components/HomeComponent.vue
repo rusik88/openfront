@@ -1,6 +1,9 @@
 <template>
   <div class="homePage1">
     <HomeView />
+    <component :is="componentLoad.default"
+               v-if="componentLoad"
+    />
   </div>
 </template>
 
@@ -15,6 +18,16 @@ export default {
   },
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      componentLoad: null,
+      component: 'ProductComponent',
+    };
+  },
+  async mounted() {
+    this.componentLoad = await import(`@/components/${this.component}`);
+    console.log(this.componentLoad);
   },
 };
 </script>
