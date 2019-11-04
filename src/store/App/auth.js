@@ -1,24 +1,35 @@
+import axios from '../../includes/init_axios';
+
 export default {
-  state: {
-    token: '',
-    auth: false,
-  },
+  state: {},
   mutations: {
     setAuth(state, payload) {
-      state.auth = payload;
+      localStorage.setItem('token', payload);
+    },
+    logout() {
+      localStorage.removeItem('token');
     },
   },
   actions: {
-    checkToken(context, payload) {
-      console.log(context, payload);
+    async login(store, payload) {
+      try {
+        const apiSession = await axios.post('/index.php?route=api/login', {
+          key: payload.apiToken,
+          username: payload.apiUser,
+        });
+        store.commit('setAuth', apiSession.data.api_token ? apiSession.data.api_token : '');
+      } catch (e) {
+        console.log('error', e);
+      }
     },
   },
   getters: {
-    token(state) {
-      return state.token;
+    token() {
+      return localStorage.getItem('token');
     },
-    getAuth(state) {
-      return state.auth;
+    getAuth() {
+      if (localStorage.getItem('token')) return true;
+      return false;
     },
   },
 };

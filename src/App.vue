@@ -1,20 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">
-        Home1 Page
-      </router-link>
-      <router-link to="/about">
-        About Page
-      </router-link>
-    </div>
     <router-view />
+    <FooterView />
   </div>
 </template>
 
 <script>
+
+import FooterView from './views/common/FooterView';
+
 export default {
   name: 'app',
+  components: { FooterView },
+  computed: {
+    auth() {
+      return this.$store.getters.getAuth;
+    },
+  },
 };
 </script>
 
