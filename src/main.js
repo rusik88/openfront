@@ -6,6 +6,7 @@ import InitApp from './includes/init_app';
 import App from './App';
 import router from './router';
 import store from './store';
+import vuetify from './includes/init_vuetify';
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
@@ -16,5 +17,6 @@ InitApp.apiLogin();
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App),
 }).$mount('#app');

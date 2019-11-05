@@ -1,8 +1,9 @@
 <template>
   <div class="homePage1">
     <HomeView />
-    <component :is="componentLoad.default"
-               v-if="componentLoad"
+    <component
+      :is="componentLoad.default"
+      v-if="componentLoad"
     />
   </div>
 </template>
