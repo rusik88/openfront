@@ -1,22 +1,99 @@
 <template>
   <div id="app">
-    <router-view />
-    <FooterView />
+    <v-app id="inspire">
+      <v-navigation-drawer
+        v-model="drawer"
+        app
+      >
+        <v-list dense>
+          <v-list-item>
+            <v-list-item-action>
+              <v-icon>home</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Home</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-action>
+              <v-icon>contact_mail</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Contact</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-app-bar
+        app
+        color="indigo"
+        dark
+      >
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+        <v-toolbar-title>Application</v-toolbar-title>
+      </v-app-bar>
+
+      <v-content>
+        <v-container
+          fluid
+          fill-height
+        >
+          <v-layout
+            align-center
+            justify-center
+          >
+            <v-flex text-xs-center>
+              <v-tooltip left>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    :href="source"
+                    icon
+                    large
+                    target="_blank"
+                    v-on="on"
+                  >
+                    <v-icon large>
+                      mdi-code-tags
+                    </v-icon>
+                  </v-btn>
+                </template>
+                <span>Source</span>
+              </v-tooltip>
+
+              <v-tooltip right>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    icon
+                    large
+                    href="https://codepen.io/johnjleider/pen/rJdVMq"
+                    target="_blank"
+                    v-on="on"
+                  >
+                    <v-icon large>
+                      mdi-codepen
+                    </v-icon>
+                  </v-btn>
+                </template>
+                <span>Codepen</span>
+              </v-tooltip>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-content>
+      <v-footer
+        color="indigo"
+        app
+      >
+        <span class="white--text">&copy; 2019</span>
+      </v-footer>
+    </v-app>
   </div>
 </template>
 
 <script>
-
-import FooterView from './views/common/FooterView';
-
 export default {
   name: 'app',
-  components: { FooterView },
-  computed: {
-    auth() {
-      return this.$store.getters.getAuth;
-    },
-  },
 };
 </script>
 
