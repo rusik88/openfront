@@ -1,102 +1,60 @@
 <template>
-  <div id="app">
-    <v-app id="inspire">
-      <v-navigation-drawer
-        v-model="drawer"
-        app
-      >
-        <v-list dense>
-          <v-list-item>
-            <v-list-item-action>
-              <v-icon>home</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Home</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-action>
-              <v-icon>contact_mail</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Contact</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
 
-      <v-app-bar
-        app
-        color="indigo"
-        dark
-      >
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-        <v-toolbar-title>Application</v-toolbar-title>
-      </v-app-bar>
+        <v-img
+          alt="Vuetify Name"
+          class="shrink mt-1 hidden-sm-and-down"
+          contain
+          min-width="100"
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+          width="100"
+        />
+      </div>
 
-      <v-content>
-        <v-container
-          fluid
-          fill-height
-        >
-          <v-layout
-            align-center
-            justify-center
-          >
-            <v-flex text-xs-center>
-              <v-tooltip left>
-                <template v-slot:activator="{ on }">
-                  <v-btn
-                    :href="source"
-                    icon
-                    large
-                    target="_blank"
-                    v-on="on"
-                  >
-                    <v-icon large>
-                      mdi-code-tags
-                    </v-icon>
-                  </v-btn>
-                </template>
-                <span>Source</span>
-              </v-tooltip>
+      <v-spacer />
 
-              <v-tooltip right>
-                <template v-slot:activator="{ on }">
-                  <v-btn
-                    icon
-                    large
-                    href="https://codepen.io/johnjleider/pen/rJdVMq"
-                    target="_blank"
-                    v-on="on"
-                  >
-                    <v-icon large>
-                      mdi-codepen
-                    </v-icon>
-                  </v-btn>
-                </template>
-                <span>Codepen</span>
-              </v-tooltip>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-content>
-      <v-footer
-        color="indigo"
-        app
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
       >
-        <span class="white--text">&copy; 2019</span>
-      </v-footer>
-    </v-app>
-  </div>
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>
+      <HelloWorld />
+    </v-content>
+  </v-app>
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld';
+
 export default {
-  name: 'app',
+  name: 'App',
+
+  components: {
+    HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
 };
 </script>
-
-<style lang="scss">
-
-</style>
