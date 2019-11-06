@@ -25,6 +25,7 @@ module.exports = {
     'max-len': ['off', { code: 200 }, { ignoreTemplateLiterals: true }, { ignoreStrings: true }],
     'no-console': 'off',
     'no-debugger': 'off',
+    'object-shorthand': 'off',
     'no-param-reassign': 'off',
     'import/no-unresolved': [
       0,
