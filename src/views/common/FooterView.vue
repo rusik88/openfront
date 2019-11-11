@@ -7,10 +7,10 @@
       class="flex"
       flat
       tile
-      color="#303F9F"
+      color="indigo darken-2"
       dark
     >
-      <v-card-title class="teal">
+      <v-card-title class="indigo indigo darken-1">
         <strong class="subheading">Get connected with us on social networks!</strong>
 
         <v-spacer />
