@@ -1,16 +1,29 @@
 <template>
   <div>
-    <h1>Dynamic Page1</h1>
-    <h5>{{ typePage }}</h5>
+    <h1>Dynamic Page</h1>
+    <component
+      :is="componentLoad.default"
+      v-if="componentLoad"
+    />
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      componentLoad: null,
+      component: 'ProductComponent',
+    };
+  },
   computed: {
     typePage() {
       return this.$store.getters.getType;
     },
+  },
+  async mounted() {
+    this.componentLoad = await import(`@/components/${this.component}`);
+    console.log(this.componentLoad);
   },
 };
 </script>
